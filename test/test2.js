@@ -1,5 +1,4 @@
 var expect = require("chai").expect;
-var store = 59;
 
 const typeRequest = ["GET", "PUT", "DELETE"];
 const cicle = [
@@ -15,7 +14,7 @@ const cicle = [
             "errors": [
                 {
                     "code": 123,
-                    "message": "Request method PUT not supported"
+                    "message": "Request method 'PUT' not supported"
                 }
             ]
         }
@@ -26,7 +25,7 @@ const cicle = [
             "errors": [
                 {
                     "code": 123,
-                    "message": "Request method DELETE not supported"
+                    "message": "Request method 'DELETE' not supported"
                 }
             ]
         }
@@ -34,7 +33,7 @@ const cicle = [
 ]
 
 typeRequest.forEach((currValue, index) => {
-    describe("[STEP" + (index + 1) + "] test_cassette_materials invalid method in the request changed from POST to " + currValue, () => {
+    describe("Parametrized JS-test " + (index + 1) + " ", () => {
         it(" Power StatusCode is 205 - Check1", function (done) {
             expect(cicle[index].statusCode).to.equal(405);
             done();
