@@ -10,7 +10,7 @@ node {
 
         stage('Java Tests') {
             withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
-                sh "${npm}/bin/npm i"
+                sh "npm i"
             }
         }
 
