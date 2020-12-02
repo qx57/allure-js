@@ -9,10 +9,9 @@ node {
         }
 
         stage('Java Tests') {
-            def npm = tool 'node-15'
-
-            sh "${npm}/bin/npm i"
-//             sh "node_modules/mocha/bin/mocha --opts mocha.opts --reporter allure-mocha || exit 0"
+            withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
+                sh "${npm}/bin/npm i"
+            }
         }
 
         stage('Wipe') {
