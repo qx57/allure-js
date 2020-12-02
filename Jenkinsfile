@@ -1,4 +1,4 @@
-node('dockerhost') {
+node {
     parameters {
         choice(name: 'ENV', choices: ['test', 'preprod'], description: 'Environment')
     }
@@ -13,7 +13,7 @@ node('dockerhost') {
         stage('Java Tests') {
             docker.image('nodejsmochachai:1.0.10') {
                 sh "npm i"
-                sh "node_modules/mocha/bin/mocha --opts mocha.opts --reporter lm-reporter || exit 0"
+                sh "node_modules/mocha/bin/mocha --opts mocha.opts --reporter allure-mocha || exit 0"
             }
         }
 
