@@ -11,6 +11,7 @@ node {
         stage('Java Tests') {
             withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
                 sh "npm i"
+                sh "node_modules/mocha/bin/mocha --opts mocha.opts --reporter allure-mocha || exit 0"
             }
         }
 
