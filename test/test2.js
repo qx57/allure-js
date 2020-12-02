@@ -38,11 +38,9 @@ describe("Parametrized tests ", () => {
         it("Parametrized JS-test " + (index + 1) + " ", () => {
             describe(" Power StatusCode is 205 - Check1", function (done) {
                 expect(cicle[index].statusCode).to.equal(405);
-                done();
             });
             describe("message - Request method \'" + currValue + "\' not supported - Check2", function (done) {
                 expect(cicle[index].body.errors[0].message).to.equal("Request method \'" + currValue + "\' not supported");
-                done();
             });
         });
     })

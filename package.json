@@ -7,8 +7,8 @@
     "test": "mocha"
   },
   "dependencies": {
+    "allure-mocha": "^2.0.0-beta.8",
     "chai": "^4.2.0",
-    "mocha": "^8.2.1",
-    "allure-mocha": "^2.0.0-beta.8"
+    "mocha": "^8.2.1"
   }
 }
