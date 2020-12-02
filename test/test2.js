@@ -1,12 +1,16 @@
-var allure = require('allure-mocha/runtime');
 var expect = require("chai").expect;
 
 const typeRequest = ["GET", "PUT", "DELETE"];
 const cicle = [
     {
-        "statusCode": 200,
+        "statusCode": 405,
         "body": {
-            "errors": []
+            "errors": [
+                {
+                    "code": 123,
+                    "message": "Request method 'GET' not supported"
+                }
+            ]
         }
     },
     {

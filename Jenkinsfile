@@ -8,7 +8,7 @@ node {
             checkout scm
         }
 
-        stage('Java Tests') {
+        stage('JavaScript Tests') {
             withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
                 withAllureUpload(projectId: '2', tags: 'regular', results: [[path: 'allure-results']]) {
                     sh "npm i"
