@@ -1,3 +1,4 @@
+--require grep.js
 --require config.js
 --timeout 60000
 --recursive
