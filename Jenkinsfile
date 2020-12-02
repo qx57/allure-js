@@ -5,13 +5,11 @@ node {
 
     timestamps {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+            checkout scm
         }
 
         stage('Java Tests') {
-            docker.image('nodejsmochachai:1.0.10') {
+            withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
                 sh "npm i"
                 sh "node_modules/mocha/bin/mocha --opts mocha.opts --reporter allure-mocha || exit 0"
             }
