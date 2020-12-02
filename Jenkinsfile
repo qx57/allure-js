@@ -1,4 +1,4 @@
-node {
+pipeline {
     parameters {
         choice(name: 'ENV', choices: ['test', 'preprod'], description: 'Environment')
     }
@@ -11,14 +11,16 @@ node {
         }
 
         stage('Java Tests') {
-            docker.image('nodejsmochachai:1.0.10') {
+            steps {
                 sh "npm i"
                 sh "node_modules/mocha/bin/mocha --opts mocha.opts --reporter allure-mocha || exit 0"
             }
         }
 
         stage('Wipe') {
-            cleanWs()
+            steps {
+                cleanWs()
+            }
         }
     }
 }
