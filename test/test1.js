@@ -1,5 +1,3 @@
-const { allure } = require('allure-mocha/runtime');
-
 const step1 = {
     "statusCode": 200,
     "body": {

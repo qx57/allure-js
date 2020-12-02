@@ -10,8 +10,10 @@ node {
 
         stage('Java Tests') {
             withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
-                sh "npm i"
-                sh "npm run test"
+                withAllureUpload(projectId: '2', tags: 'regular', results: [[path: 'allure-results']]) {
+                    sh "npm i"
+                    sh "npm run test"
+                }
             }
         }
 
