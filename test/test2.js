@@ -1,3 +1,4 @@
+var allure = require('allure-mocha/runtime');
 var expect = require("chai").expect;
 
 const typeRequest = ["GET", "PUT", "DELETE"];
