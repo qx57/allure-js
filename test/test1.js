@@ -1,5 +1,4 @@
-var expect = require("chai").expect;
-var store = 59;
+const { allure } = require('allure-mocha/runtime');
 
 const step1 = {
     "statusCode": 200,
@@ -28,8 +27,11 @@ const step3 = {
     }
 }
 
-////mineralnye-i-kassetnye-201709_Opus_Family
-describe("[STEP1] test_cassette_materials ", () => {
+var expect = require("chai").expect;
+var store = 59;
+
+
+describe("JS-test 1 ", () => {
     it("StatusCode is 200 - Check1", (done) => {
         expect(step1.statusCode).to.equal(200);
         done();
@@ -49,7 +51,7 @@ describe("[STEP1] test_cassette_materials ", () => {
 });
 
 
-describe("[STEP2] test_cassette_materials ", () => {
+describe("JS-test 2 ", () => {
     it("StatusCode is 200 - Check1", (done) => {
         expect(step2.statusCode).to.equal(200);
         done();
@@ -69,7 +71,7 @@ describe("[STEP2] test_cassette_materials ", () => {
 });
 
 
-describe("[STEP3] test_cassette_materials ", () => {
+describe("JS-test 2 ", () => {
     it("StatusCode is 200 - Check1", (done) => {
         expect(step3.statusCode).to.equal(200);
         done();

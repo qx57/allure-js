@@ -10,8 +10,11 @@
     "chai": "^4.2.0",
     "dotenv": "^6.1.0",
     "lodash": "^4.17.11",
-    "mocha": "^5.2.0",
     "sync-request": "^5.0.0",
     "lm-reporter": "^0.1.0"
+  },
+  "devDependencies": {
+    "allure-mocha": "^2.0.0-beta.8",
+    "mocha": "^5.2.0"
   }
 }
