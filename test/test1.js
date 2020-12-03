@@ -1,5 +1,5 @@
 var expect = require("chai").expect;
-const { allure } = require('allure-mocha/runtime');
+const allure = require('allure-mocha/runtime');
 
 const step1 = {
     "statusCode": 200,
@@ -23,13 +23,13 @@ const step2 = {
 describe("JS-tests ", () => {
     // before('Connect to DB', () => {});
 
-    const jopa = allure.createStep("StatusCode is 200 - Check1", () => {
+    const jopa = () => allure.allure.createStep("StatusCode is 200 - Check1", () => {
             expect(step1.statusCode).to.equal(200);
         });
 
     it("JS-test 1 ", () => {
-        // allure.feature("JS-001");
-        // allure.story("JS-tests");
+        allure.allure.feature("JS-001");
+        allure.allure.story("JS-tests");
 
         jopa();
         // describe("Correct productId - Check2", () => {
