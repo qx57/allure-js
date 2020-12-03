@@ -1,5 +1,5 @@
-var allure = require('allure-mocha/runtime');
 var expect = require("chai").expect;
+const allure = require('allure-mocha/runtime');
 
 const step1 = {
     "statusCode": 200,
@@ -21,46 +21,43 @@ const step2 = {
 
 
 describe("JS-tests ", () => {
-    before('Connect to DB', () => {});
+    // before('Connect to DB', () => {});
+
+    const jopa = () => allure.allure.createStep("StatusCode is 200 - Check1", () => {
+            expect(step1.statusCode).to.equal(200);
+        });
 
     it("JS-test 1 ", () => {
-        describe("StatusCode is 200 - Check1", (done) => {
-            expect(step1.statusCode).to.equal(200);
-            done();
-        });
-        describe("Correct productId - Check2", (done) => {
-            expect(step1.body.productId).to.equal('12903354_PimStd_Product');
-            done();
-        });
-        describe("Quantity - 88- Check3", (done) => {
-            expect(step1.body.quantity).to.equal(88);
-            done();
-        });
-        describe("Price - 21824- Check4", (done) => {
-            expect(step1.body.price).to.equal(21824);
-            done();
-        });
+        allure.allure.feature("JS-001");
+        allure.allure.story("JS-tests");
+
+        jopa();
+        // describe("Correct productId - Check2", () => {
+        //     expect(step1.body.productId).to.equal('12903354_PimStd_Product');
+        // });
+        // describe("Quantity - 88- Check3", () => {
+        //     expect(step1.body.quantity).to.equal(88);
+        // });
+        // describe("Price - 21824- Check4", () => {
+        //     expect(step1.body.price).to.equal(21824);
+        // });
     });
 
 
     it("JS-test 2 ", () => {
         describe("StatusCode is 200 - Check1", (done) => {
             expect(step2.statusCode).to.equal(200);
-            done();
         });
         describe("√ productId - Check2", (done) => {
             expect(step2.body.productId).to.exist;
-            done();
         });
         describe("√ quantity - Check3", (done) => {
             expect(step2.body.quantity).to.exist;
-            done();
         });
         describe("√ price - Check4", (done) => {
             expect(step2.body.price).to.exist;
-            done();
         });
     });
 
-    after('Disconnect from DB', async () => {});
+    // after('Disconnect from DB', async () => {});
 });
