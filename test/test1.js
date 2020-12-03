@@ -23,7 +23,7 @@ const step2 = {
 describe("JS-tests ", () => {
     // before('Connect to DB', () => {});
 
-    const jopa = () => allure.allure.createStep("StatusCode is 200 - Check1", () => {
+    const jopa = () => allure.allure.step("StatusCode is 200 - Check1", () => {
             expect(step1.statusCode).to.equal(200);
         });
 
