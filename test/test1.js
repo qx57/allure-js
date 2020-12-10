@@ -23,24 +23,33 @@ const step2 = {
 describe("JS-tests ", () => {
     // before('Connect to DB', () => {});
 
-    const jopa = () => allure.allure.step("StatusCode is 200 - Check1", () => {
+    const stepOne = () => allure.allure.step("StatusCode is 200 - Check1", () => {
             expect(step1.statusCode).to.equal(200);
+        });
+
+    const stepTwo = () => allure.allure.step("StatusCode is 200 - Check1", () => {
+            expect(step1.body.productId).to.equal('12903354_PimStd_Product');
+        });
+
+    const stepThree = () => allure.allure.step("StatusCode is 200 - Check1", () => {
+            expect(step1.body.quantity).to.equal(88);
+        });
+
+    const stepFour = () => allure.allure.step("StatusCode is 200 - Check1", () => {
+            expect(step1.body.price).to.equal(21824);
         });
 
     it("JS-test 1 ", () => {
         allure.allure.feature("JS-001");
         allure.allure.story("JS-tests");
 
-        jopa();
-        // describe("Correct productId - Check2", () => {
-        //     expect(step1.body.productId).to.equal('12903354_PimStd_Product');
-        // });
-        // describe("Quantity - 88- Check3", () => {
-        //     expect(step1.body.quantity).to.equal(88);
-        // });
-        // describe("Price - 21824- Check4", () => {
-        //     expect(step1.body.price).to.equal(21824);
-        // });
+        stepOne();
+
+        stepTwo();
+
+        stepThree();
+
+        stepFour();
     });
 
 
