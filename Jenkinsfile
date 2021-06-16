@@ -1,4 +1,4 @@
-node {
+node('dockerhost') {
     parameters {
         choice(name: 'ENV', choices: ['test', 'preprod'], description: 'Environment')
     }
@@ -10,7 +10,7 @@ node {
 
         stage('JavaScript Tests') {
             withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
-                withAllureUpload(projectId: '2', tags: 'regular', results: [[path: 'allure-results']]) {
+                withAllureUpload(serverId: 'allure-server', projectId: '1', results: [[path: 'allure-results']]) {
                     sh "npm i"
                     sh "npm test"
                 }
