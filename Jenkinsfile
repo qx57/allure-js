@@ -12,7 +12,7 @@ node('dockerhost') {
             docker.image('docker.art.lmru.tech/node:12.22.1').inside {
                 //withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
                     withAllureUpload(serverId: 'allure-server', projectId: '1', results: [[path: 'allure-results']]) {
-                        sh "npm ci"
+                        sh "npm i"
                         sh "npm test"
                     }
                 //}
