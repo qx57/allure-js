@@ -9,7 +9,7 @@ node('dockerhost') {
         }
 
         stage('JavaScript Tests') {
-            docker.image('docker-public.art.lmru.tech/node:12.22.1').inside {
+            docker.image('docker.art.lmru.tech/node:12.22.1').inside {
                 //withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
                     withAllureUpload(serverId: 'allure-server', projectId: '1', results: [[path: 'allure-results']]) {
                         sh "npm ci"
