@@ -9,7 +9,7 @@ node('dockerhost') {
         }
 
         stage('JavaScript Tests') {
-            docker.image('docker.art.lmru.tech/nodejsmochachai:1.0.10').inside {
+            docker.image('docker.art.lmru.tech/npm/mocha-chai-snapshots:latest').inside {
                 withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
                     withAllureUpload(serverId: 'allure-server', projectId: '1', results: [[path: 'allure-results']]) {
                         sh "npm i"
