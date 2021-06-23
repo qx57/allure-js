@@ -9,10 +9,12 @@ node('dockerhost') {
         }
 
         stage('JavaScript Tests') {
-            withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
-                withAllureUpload(serverId: 'allure-server', projectId: '1', results: [[path: 'allure-results']]) {
-                    sh "npm i"
-                    sh "npm test"
+            docker.image('docker.art.lmru.tech/tests/nodejsmochachai:1.0.10').inside {
+                withEnv(["PATH+NODE=${tool 'node-15'}/bin"]) {
+                    withAllureUpload(serverId: 'allure-server', projectId: '1', results: [[path: 'allure-results']]) {
+                        sh "npm i"
+                        sh "npm test"
+                    }
                 }
             }
         }
